@@ -1,0 +1,12 @@
+<form>
+  <input type="text" name="username" [(ngModel)]="username">
+  <input type="text" name="id_user" [(ngModel)]="id_user">
+  <input type="email" name="email" [(ngModel)]="email">
+  <input type="text" name="date_birth" [(ngModel)]="date_birth">
+  <input type="text" name="area" [(ngModel)]="area">
+  <input type="password" name="password" [(ngModel)]="password">
+  <input type="password" name="confirm_password" [(ngModel)]="confirm_password">
+  <input type="submit" value="Registrar" (click)="user_register()">
+</form>
+
+<p *ngIf="register">{{ message }} {{username}}</p>
