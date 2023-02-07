@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -6,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  message = '';
-  register= false;
 
   username:string=''
   password:string=''
@@ -15,5 +14,10 @@ export class LoginComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  login(form:NgForm){
+    const user=form.value.user;
+    const password=form.value.password;
   }
 }
