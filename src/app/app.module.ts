@@ -8,6 +8,7 @@ import { UsersComponent } from './components/users/users.component';
 import { PaquetesComponent } from './components/paquetes/paquetes.component';
 import { CashRegisterComponent } from './components/cash-register/cash-register.component';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes=[
   {path:'login_route', component:LoginComponent},
@@ -26,7 +27,8 @@ const appRoutes: Routes=[
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
