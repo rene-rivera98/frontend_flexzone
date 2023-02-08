@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { environment } from './../../environments/environment';
+import { Observable } from 'rxjs';
+import { User } from 'app/interfaces/user';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +17,9 @@ getLoginUser(){
     .set('Type-content','aplication/json')
 }
 
-getAccessToken(body:any){
-  this.http.post(environment.UrlAPI+'auth',body)
+getAccessToken(body:any):Observable<any>{
+  console.log('body',body)
+
+ return this.http.post(environment.UrlAPI+'/auth',body)
 }
 }

@@ -9,10 +9,12 @@ import { PaquetesComponent } from './components/paquetes/paquetes.component';
 import { CashRegisterComponent } from './components/cash-register/cash-register.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthGuardGuard } from 'app/auth-guard.guard';
 
 const appRoutes: Routes=[
-  {path:'login_route', component:LoginComponent},
-  {path:'users_route', component:UsersComponent}
+  {path:'login', component:LoginComponent,},
+  {path:'', component:UsersComponent,canActivate:[AuthGuardGuard]}
 ];
 
 @NgModule({
@@ -26,9 +28,10 @@ const appRoutes: Routes=[
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
