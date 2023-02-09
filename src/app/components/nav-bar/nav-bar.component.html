@@ -17,14 +17,27 @@
       height: 100vh;
       background: #000000;
     }
+
+    .contenedor{
+      text-align: right;
+      margin-right: auto
+
+    }
+
+    .imagen{
+      width: 350px;
+      padding-right: 15px;
+      padding-top: 10px;
+    }
+
   </style>
 </head>
 
 <body style="background-color: gold;">
   <div class="d-flex">
     <div id="sidebar">
-      <div class="p-2">
-        <a href="#" class="navbar-brand text-center text-light w-100 p-4 border-bottom">
+      <div class="p-0" style="background-color: aqua;">
+        <a href="#" class="navbar-brand text-light w-100 p-5 border-bottom">
           Menu de inicio
         </a>
       </div>
@@ -33,50 +46,57 @@
         <div class="list-group">
 
           <a href="" data-toggle="collapse" aria-expanded="false"
-            class="list-group-item list-group-item-action text-light" style="background-color: #000000">
-            <i class="fa fa-user mr-3" aria-hidden="true"></i>Usuarios
+            class="list-group-item list-group-item-action text-light" style="background-color: #000000; font-size: x-large;">
+            <i class="fa fa-user-circle mr-3 fa-2x" aria-hidden="true"></i>Usuarios
           </a>
-         
+
           <a href="" data-toggle="collapse" aria-expanded="false"
-            class="list-group-item list-group-item-action text-light" style="background-color: #000000">
-            <i class="fa fa-archive mr-3" aria-hidden="true"></i>Paquetes
+            class="list-group-item list-group-item-action text-light" style="background-color: #000000; font-size: x-large;">
+            <i class="fa fa-archive mr-3 fa-2x" aria-hidden="true"></i>Servicios
           </a>
-          
-          <a href="" class="list-group-item list-group-item-action text-light" style="background-color: #000000">
-            <i class="fa fa-shopping-cart mr-3" aria-hidden="true"></i>Caja
-          </a>
+
+
           <a href="" data-toggle="collapse" aria-expanded="false"
-            class="list-group-item list-group-item-action text-light" style="background-color: #000000">
-            <i class="fa fa-print mr-3" aria-hidden="true"></i>Facturación
+            class="list-group-item list-group-item-action text-light" style="background-color: #000000; font-size: x-large;">
+            <i class="fa fa-print mr-3 fa-2x" aria-hidden="true"></i>Facturación
           </a>
-          
+
           <a href="" data-toggle="collapse" aria-expanded="false"
-            class="list-group-item list-group-item-action text-light" style="background-color: #000000">
-            <i class="fa fa-file-text mr-3" aria-hidden="true"></i>Reportes
+            class="list-group-item list-group-item-action text-light" style="background-color: #000000; font-size: x-large;">
+            <i class="fa fa-file-text mr-3 fa-2x" aria-hidden="true"></i>Reportes
           </a>
-          
+
+          <!-- <a href="" data-toggle="collapse" aria-expanded="false"
+            class="list-group-item list-group-item-action text-light" style="background-color: #000000; font-size: x-large ;">
+            <i class="fa fa-book mr-3 fa-2x" aria-hidden="true"></i>Bitacora
+          </a> -->
+
+          <a href="" class="list-group-item list-group-item-action text-light" style="background-color: #000000; font-size: x-large ;">
+            <i class="fa fa-shopping-cart mr-3 fa-2x" aria-hidden="true"></i>Caja
+          </a>
+
           <a href="" data-toggle="collapse" aria-expanded="false"
-            class="list-group-item list-group-item-action text-light" style="background-color: #000000">
-            <i class="fa fa-book mr-3" aria-hidden="true"></i>Bitacora
+            class="list-group-item list-group-item-action text-light" style="background-color: #000000; font-size: x-large ;">
+            <i class="fa fa-window-close mr-3 fa-2x" aria-hidden="true"></i>SALIR
           </a>
-          
-          <a href="" data-toggle="collapse" aria-expanded="false"
-            class="list-group-item list-group-item-action text-light" style="background-color: #000000">
-            <i class="fa fa-window-close mr-3" aria-hidden="true"></i>SALIR
-          </a>
+
         </div>
       </div>
     </div>
-    
+
     <div class="content w-100">
-      <nav class="navbar navbar-expand-lg" style="background: #000000; height: 95px;" >
+      <nav style="background: #000000; height: 128px;">
+        <div class="contenedor"><img class="imagen" id="logo" src="../../../assets/img/logo_flexzone_fotter.png"></div>
+        <a href="" class="list-group-item list-group-item-action text-light" style="background-color: #000000; font-size: x-large;">
+            <i class="fa fa-book mr-3 fa-2x" aria-hidden="true"></i>Bitacora
+          </a>
       </nav>
 
       <section class="p-3" >
         <div class="container" >
           <div class="row" >
             <div class="col-md-12">
-                <h1 style="text-align: center;">Bienvenido</h1>
+                <h1 style="text-align: left;">Bienvenido</h1>
             </div>
           </div>
         </div>
