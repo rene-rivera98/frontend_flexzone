@@ -14,7 +14,7 @@ import { AuthGuardGuard } from 'app/auth-guard.guard';
 
 const appRoutes: Routes=[
   {path:'login', component:LoginComponent,},
-  {path:'', component:UsersComponent,canActivate:[AuthGuardGuard]}
+  {path:'', component:NavBarComponent,canActivate:[AuthGuardGuard]}
 ];
 
 @NgModule({
