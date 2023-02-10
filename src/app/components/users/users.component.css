@@ -1,0 +1,60 @@
+
+#sidebar {
+  width: 20%;
+  height: 100vh;
+  background: #000000;
+}
+
+.contenedor{
+  text-align: right;
+  margin-right: auto
+
+}
+
+.imagen{
+  width: 250px;
+  padding-right: 15px;
+  padding-top: 10px;
+}
+
+.dropdown-toggle::after {
+        content: none;
+    }
+
+    .accordion {
+--bs-accordion-active-color: black;
+--bs-accordion-active-bg: white;
+}
+
+html,
+body,
+.intro {
+  height: 100%;
+}
+
+table td,
+table th {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+thead th {
+  color: #fff;
+}
+
+.card {
+  border-radius: .5rem;
+}
+
+.table-scroll {
+  border-radius: .5rem;
+}
+
+.table-scroll table thead th {
+  font-size: 1.25rem;
+}
+thead {
+  top: 0;
+  position: sticky;
+}

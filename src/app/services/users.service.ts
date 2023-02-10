@@ -1,28 +1,28 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { User } from '../interfaces/user';
+import { HttpClient } from '@angular/common/http';
+import { environment } from './../../environments/environment';
+import { Observable } from 'rxjs';
+import { User } from 'app/interfaces/user';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService {
-user:User= {
-  name: 'René',
-  apellidoPaterno: 'Rivera',
-  apellidoMaterno: 'Montalvo',
-  password: 'sdcd99xd',
-  idrol: 1,
-  email: 'rkjbrcrc@gmail.com',
-  fechaNacimiento: '189716872',
-  celular: 287323723
-}
-constructor() { }
+export class LoginService {
+http: any;
 
+// constructor(private http:HttpClient) {
+//   console.log('Hola')
+// }
 
-
-public getUser(): Observable<User>{
-  return of(this.user);
-
+getUserList(){
+  let heades = new Headers()
+    .set('Type-content','aplication/json')
 }
 
+getAccessToken(body:any):Observable<any>{
+  console.log('body',body)
+
+ return this.http.get(environment.UrlAPI+'/users',body)
+}
 }
