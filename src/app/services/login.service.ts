@@ -7,10 +7,11 @@ import { User } from 'app/interfaces/user';
   providedIn: 'root'
 })
 export class LoginService {
+http: any;
 
-constructor(private http:HttpClient) {
-  console.log('Hola')
-}
+// constructor(private http:HttpClient) {
+//   console.log('Hola')
+// }
 
 getLoginUser(){
   let heades = new Headers()
