@@ -1,28 +1,29 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from './../../environments/environment';
 import { Observable } from 'rxjs';
-import { User } from 'app/interfaces/user';
+
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
-http: any;
+export class UsersService {
 
-// constructor(private http:HttpClient) {
-//   console.log('Hola')
-// }
+constructor(private http:HttpClient) {
+  console.log('Hola 2')
+}
 
-getUserList(){
-  let heades = new Headers()
+getUserList():Observable<any>{
+  console.log('extracted users')
+
+  const token=localStorage.getItem('credentials');
+
+  let heades = new HttpHeaders()
     .set('Type-content','aplication/json')
+    .set('Authorization', token!)
+
+  return this.http.get(environment.UrlAPI+'/users',{headers: heades})
 }
 
-getAccessToken(body:any):Observable<any>{
-  console.log('body',body)
-
- return this.http.get(environment.UrlAPI+'/users',body)
-}
 }

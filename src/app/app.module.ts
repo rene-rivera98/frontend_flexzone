@@ -19,7 +19,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 const appRoutes: Routes=[
   {path:'login', component:LoginComponent},
   {path:'', component:LoginComponent,canActivate:[AuthGuardGuard]},
-  {path: 'datatable', component:UsersComponent}
+  {path: 'datatable', component:UsersComponent,canActivate:[AuthGuardGuard]}
 ];
 
 @NgModule({
