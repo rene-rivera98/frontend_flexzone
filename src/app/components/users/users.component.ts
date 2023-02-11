@@ -12,7 +12,7 @@ import { UsersService } from 'app/services/users.service';
 })
 export class UsersComponent implements OnInit{
 
-  dataSource = new MatTableDataSource<any>();
+  dataSource:any
 
   obtenido: Promise<boolean> | undefined;
 
@@ -23,7 +23,7 @@ export class UsersComponent implements OnInit{
   ngOnInit(): void {
     this.UserService.getUserList().subscribe((getData)=>{
       console.log(getData);
-      this.dataSource.data = getData
+      this.dataSource = getData
       console.log(this.dataSource);
       this.obtenido = Promise.resolve(true);
     })
