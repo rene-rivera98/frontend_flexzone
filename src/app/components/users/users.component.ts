@@ -12,21 +12,18 @@ import { UsersService } from 'app/services/users.service';
 })
 export class UsersComponent implements OnInit{
 
-  dataSource:any
-
+  dataSource:any;
   obtenido: Promise<boolean> | undefined;
 
 
   constructor(private UserService: UsersService){
 
   }
-  ngOnInit(): void {
-    this.UserService.getUserList().subscribe((getData)=>{
-      console.log(getData);
-      this.dataSource = getData
-      console.log(this.dataSource);
-      this.obtenido = Promise.resolve(true);
-    })
+  async ngOnInit() {
+   const response= await this.UserService.getUserList()
+    this.dataSource=new MatTableDataSource<any>(response.usuarios)
+    console.log(this.dataSource)
+    this.obtenido=Promise.resolve(true)
   }
 
 

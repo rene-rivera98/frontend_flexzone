@@ -14,7 +14,7 @@ constructor(private http:HttpClient) {
   console.log('Hola 2')
 }
 
-getUserList():Observable<any>{
+  async getUserList():Promise<any>{
   console.log('extracted users')
 
   const token=localStorage.getItem('credentials');
@@ -23,7 +23,7 @@ getUserList():Observable<any>{
     .set('Type-content','aplication/json')
     .set('Authorization', token!)
 
-  return this.http.get(environment.UrlAPI+'/users',{headers: heades})
+  return await this.http.get(environment.UrlAPI+'/users',{headers: heades}).toPromise()
 }
 
 }
