@@ -6,20 +6,20 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class newUserService {
 
   constructor(private http:HttpClient) {
-    console.log('Hola')
+    console.log('Crear usuarios ejecutandose')
   }
 
-  getLoginUser(){
+  postNewUser(){
     let heades = new Headers()
       .set('Type-content','aplication/json')
   }
 
-  getAccessToken(body:any):Observable<any>{
-    console.log('body',body)
+  getAccessToken(body2:any):Observable<any>{
+    console.log('body',body2)
 
-  return this.http.post(environment.UrlAPI+'/auth',body)
+  return this.http.post(environment.UrlAPI+'/users',body2)
   }
 }

@@ -1,0 +1,107 @@
+<section class="vh-100" style="background-color: #2779e2;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-9">
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-body">
+
+            <form [formGroup]="newUserForm" (ngSubmit)="onSubmit()">
+              <div class="row align-items-center pt-4 pb-3">
+                <div class="col-md-3 ps-5">
+                  <h6 class="mb-0">Nombre</h6>
+                </div>
+                <div class="col-md-9 pe-5">
+                  <input type="text" class="form-control form-control-lg" id="nombre" name="nombre" formControlName="nombre"/>
+                </div>
+              </div>
+
+              <hr class="mx-n3">
+
+              <div class="row align-items-center pt-4 pb-3">
+                <div class="col-md-3 ps-5">
+                  <h6 class="mb-0">Apellido paterno</h6>
+                </div>
+                <div class="col-md-9 pe-5">
+                  <input type="text" class="form-control form-control-lg" id="apellidoPaterno" name="apellidoPaterno" formControlName="apellidoPaterno"/>
+                </div>
+              </div>
+
+              <hr class="mx-n3">
+
+              <div class="row align-items-center pt-4 pb-3">
+                <div class="col-md-3 ps-5">
+                  <h6 class="mb-0">Apellido materno</h6>
+                </div>
+                <div class="col-md-9 pe-5">
+                  <input type="text" class="form-control form-control-lg" id="apellidoMaterno" name="apellidoMaterno" formControlName="apellidoMaterno"/>
+                </div>
+              </div>
+
+              <hr class="mx-n3">
+
+              <div class="row align-items-center pt-4 pb-3">
+                <div class="col-md-3 ps-5">
+                  <h6 class="mb-0">Contraseña</h6>
+                </div>
+                <div class="col-md-9 pe-5">
+                  <input type="text" class="form-control form-control-lg" id="password" name="password" formControlName="password"/>
+                </div>
+              </div>
+
+              <hr class="mx-n3">
+
+              <div class="row align-items-center pt-4 pb-3">
+                <div class="col-md-3 ps-5">
+                  <h6 class="mb-0">Tipo usuario</h6>
+                </div>
+                <div class="col-md-9 pe-5">
+                  <input type="text" class="form-control form-control-lg" id="idrol" name="idrol" formControlName="idrol"/>
+                </div>
+              </div>
+
+              <hr class="mx-n3">
+
+              <div class="row align-items-center pt-4 pb-3">
+                <div class="col-md-3 ps-5">
+                  <h6 class="mb-0">Email</h6>
+                </div>
+                <div class="col-md-9 pe-5">
+                  <input type="text" class="form-control form-control-lg" id="email" name="email" formControlName="email"/>
+                </div>
+              </div>
+
+              <hr class="mx-n3">
+
+              <div class="row align-items-center pt-4 pb-3">
+                <div class="col-md-3 ps-5">
+                  <h6 class="mb-0">Fecha de nacimiento</h6>
+                </div>
+                <div class="col-md-9 pe-5">
+                  <input type="text" class="form-control form-control-lg" id="fechaNacimiento" name="fechaNacimiento" formControlName="fechaNacimiento"/>
+                </div>
+              </div>
+
+              <hr class="mx-n3">
+
+              <div class="row align-items-center pt-4 pb-3">
+                <div class="col-md-3 ps-5">
+                  <h6 class="mb-0">Celular</h6>
+                </div>
+                <div class="col-md-9 pe-5">
+                  <input type="text" class="form-control form-control-lg" id="celular" name="celular" formControlName="celular"/>
+                </div>
+              </div>
+
+              <hr class="mx-n3">
+
+              <div class="px-5 py-4">
+                <button type="submit" class="btn btn-primary btn-lg">Registrar usuario</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

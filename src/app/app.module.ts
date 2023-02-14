@@ -12,15 +12,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthGuardGuard } from 'app/auth-guard.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatCardModule} from '@angular/material/card';
+import { MatTableModule} from '@angular/material/table';
+import { MatPaginatorModule} from '@angular/material/paginator';
+import { newUserComponent} from './components/create_user/create_user.component';
 
 const appRoutes: Routes=[
   {path:'login', component:LoginComponent},
   {path: 'admin', component:NavBarComponent},
   {path:'', component:LoginComponent,canActivate:[AuthGuardGuard]},
-  {path: 'datatable', component:UsersComponent,canActivate:[AuthGuardGuard]}
+  {path: 'datatable', component:UsersComponent,canActivate:[AuthGuardGuard]},
+  {path: 'createuser', component:newUserComponent,canActivate:[AuthGuardGuard]}
+
 ];
 
 @NgModule({
@@ -30,7 +33,8 @@ const appRoutes: Routes=[
     NavBarComponent,
     UsersComponent,
     PaquetesComponent,
-    CashRegisterComponent
+    CashRegisterComponent,
+    newUserComponent
   ],
   imports: [
     BrowserModule,
