@@ -3,8 +3,8 @@ export interface Newuser {
   apellidoPaterno: string
   apellidoMaterno: string
   password: string
-  idrol: string
+  idrol: number
   email: string
   fechaNacimiento: string
-  celular: string
+  celular: number
 }

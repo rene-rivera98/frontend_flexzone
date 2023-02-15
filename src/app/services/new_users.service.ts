@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from './../../environments/environment';
 import { Observable } from 'rxjs';
 
@@ -12,14 +12,13 @@ export class newUserService {
     console.log('Crear usuarios ejecutandose')
   }
 
-  postNewUser(){
-    let heades = new Headers()
+  postNewUser(body2:any):Observable<any>{
+    const token=localStorage.getItem('credentials');
+
+    let heades = new HttpHeaders()
       .set('Type-content','aplication/json')
+      .set('Authorization', token!)
+      return this.http.post(environment.UrlAPI+'/users',body2,{headers: heades})
+  }
   }
 
-  getAccessToken(body2:any):Observable<any>{
-    console.log('body',body2)
-
-  return this.http.post(environment.UrlAPI+'/users',body2)
-  }
-}
