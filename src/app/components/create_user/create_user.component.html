@@ -1,114 +1,193 @@
-<section class="vh-100" style="background-color: #2779e2;">
-  <div class="container h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-xl-9">
-        <div class="card" style="border-radius: 15px;">
-          <div class="card-body">
 
-            <form [formGroup]="newUserForm" (ngSubmit)="onSubmit()">
-              <div class="row align-items-center pt-4 pb-3">
-                <div class="col-md-3 ps-5">
-                  <h6 class="mb-0">Nombre</h6>
-                </div>
-                <div class="col-md-9 pe-5">
-                  <input type="text" class="form-control form-control-lg" id="nombre" name="nombre" formControlName="nombre"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+<body>
+  <div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <div class="contenedor"><img class="imagen" id="logo" src="../../../assets/img/logo_flexzone_fotter.png" width="200px"></div>
+      </div>
+
+      <ul class="list-unstyled components">
+          <p style="text-align: center; font-size: x-large;">ADMINISTRADOR</p>
+          <hr>
+          <li>
+            <div>
+              <a href="#" style="display: flex; align-items: center;"><i class="bi bi-bar-chart-fill" style="font-size: 1.4rem;"></i><span style="margin-top: 10px; margin-left: 5px; font-size: 1.7rem;">Reportes</span></a>
+            </div>
+          </li>
+          <!--  -->
+          <li>
+            <div>
+              <a href="#" style="display: flex; align-items: center;"><i class="bi bi-archive-fill" style="font-size: 1.4rem;"></i><span style="margin-top: 10px; margin-left: 5px; font-size: 1.7rem;">FrontDesk</span></a>
+            </div>
+          </li>
+          <!--  -->
+          <li>
+            <div>
+              <a href="#" style="display: flex; align-items: center;"><i class="bi bi-cup-fill" style="font-size: 1.4rem;"></i><span style="margin-top: 10px; margin-left: 5px; font-size: 1.7rem;">Cafeteria</span></a>
+            </div>
+          </li>
+          <!--  -->
+          <li>
+            <div>
+              <a [routerLink]="['/datatable']" style="display: flex; align-items: center;"><i class="bi bi-person-fill" style="font-size: 1.4rem;"></i><span style="margin-top: 10px; margin-left: 5px; font-size: 1.7rem;">Usuarios</span></a>
+            </div>
+          </li>
+          <!--  -->
+          <li>
+            <div>
+              <a href="#" style="display: flex; align-items: center;"><i class="bi bi-receipt-cutoff" style="font-size: 1.4rem;"></i><span style="margin-top: 10px; margin-left: 5px; font-size: 1.7rem;">Facturas</span></a>
+            </div>
+          </li>
+          <!--  -->
+          <li>
+            <div>
+              <a href="#" style="display: flex; align-items: center;"><i class="bi bi-cash-stack" style="font-size: 1.4rem;"></i><span style="margin-top: 10px; margin-left: 5px; font-size: 1.7rem;">Caja</span></a>
+            </div>
+          </li>
+          <!--  -->
+        </ul>
+
+        <div style="margin-left: 3rem;">
+          <button type="button" class="btn btn-primary"
+                  style="--bs-btn-border-color: blueviolet;
+                         --bs-btn-bg: blueviolet;
+                         --bs-btn-hover-bg: #242e3d;
+                         --bs-btn-hover-border-color: #ffe100df;
+                         --bs-btn-hover-bg: #ffe100df;
+                         --bs-btn-hover-color: #ffffff;">
+            CERRAR SESIÓN
+          </button>
+        </div>
+  </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+      <!-- NAVBAR -->
+        <app-navbar-users></app-navbar-users>
+      <!-- NAVBAR -->
+
+      <!-- CONTENT -->
+      <section class="vh-40 gradient-custom">
+        <div >
+          <div >
+            <div >
+              <div class="card shadow-2-strong card-registration">
+                <div class="card-body p-4 p-md-5">
+                  <form [formGroup]="newUserForm" (ngSubmit)="onSubmit()">
+
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                          <label class="form-label" >Nombre(s)</label>
+                          <input type="text" id="nombre" name="nombre" class="form-control" formControlName="nombre"/>
+                          <div *ngIf="newUserForm.get('nombre')?.invalid && submitted || newUserForm.get('nombre')?.touched" >
+                            <div *ngIf="newUserForm.get('nombre')?.errors?.['required']" style="color: red;">Campo requerido</div>
+                            <div *ngIf="newUserForm.get('nombre')?.errors?.['nombre']" style="color: red">Campo invalido</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                          <label class="form-label" >Apellido paterno</label>
+                          <input type="text" id="apellidoPaterno" name="apellidoPaterno" class="form-control" formControlName="apellidoPaterno"/>
+                          <div *ngIf="newUserForm.get('apellidoPaterno')?.invalid && submitted || newUserForm.get('apellidoPaterno')?.touched" >
+                            <div *ngIf="newUserForm.get('apellidoPaterno')?.errors?.['required']" style="color: red;">Campo requerido</div>
+                            <div *ngIf="newUserForm.get('apellidoPaterno')?.errors?.['apellidoPaterno']" style="color: red">Campo invalido</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--  -->
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                          <label class="form-label">Apellido materno</label>
+                          <input type="text" class="form-control" id="apellidoMaterno" name="apellidoMaterno" formControlName="apellidoMaterno"/>
+                          <div *ngIf="newUserForm.get('apellidoMaterno')?.invalid && submitted || newUserForm.get('apellidoMaterno')?.touched" >
+                            <div *ngIf="newUserForm.get('apellidoMaterno')?.errors?.['required']" style="color: red;">Campo requerido</div>
+                            <div *ngIf="newUserForm.get('apellidoMaterno')?.errors?.['apellidoMaterno']" style="color: red">Campo invalido</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                          <label class="form-label">Contraseña</label>
+                          <input type="text" class="form-control" id="password" name="password" formControlName="password"/>
+                          <div *ngIf="newUserForm.get('password')?.invalid && submitted || newUserForm.get('password')?.touched" >
+                            <div *ngIf="newUserForm.get('password')?.errors?.['required']" style="color: red;">Campo requerido</div>
+                            <div *ngIf="newUserForm.get('password')?.errors?.['password']" style="color: red">Campo invalido</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--  -->
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                          <label class="form-label">Tipo usuario</label>
+                          <input type="email" id="idrol" class="form-control" name="idrol" formControlName="idrol"/>
+                          <div *ngIf="newUserForm.get('idrol')?.invalid && submitted || newUserForm.get('idrol')?.touched" >
+                            <div *ngIf="newUserForm.get('idrol')?.errors?.['required']" style="color: red;">Campo requerido</div>
+                            <div *ngIf="newUserForm.get('idrol')?.errors?.['idrol']" style="color: red">Campo invalido</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                          <label class="form-label" >Correo electrónico</label>
+                          <input type="email" id="email" class="form-control" name="email" formControlName="email"/>
+                          <div *ngIf="newUserForm.get('email')?.invalid && submitted || newUserForm.get('email')?.touched" >
+                            <div *ngIf="newUserForm.get('email')?.errors?.['required']" style="color: red;">Campo requerido</div>
+                            <div *ngIf="newUserForm.get('email')?.errors?.['email']" style="color: red">Campo invalido</div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--  -->
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                          <label class="form-label" >Fecha de nacimiento</label>
+                          <input type="date" id="fechaNacimiento" class="form-control" name="fechaNacimiento"
+                                 formControlName="fechaNacimiento" min="1900-01-01" max="2018-12-31"/>
+                                 <div *ngIf="newUserForm.get('fechaNacimiento')?.invalid && submitted || newUserForm.get('fechaNacimiento')?.touched" >
+                                  <div *ngIf="newUserForm.get('fechaNacimiento')?.errors?.['required']" style="color: red;">Campo requerido</div>
+                                  <div *ngIf="newUserForm.get('fechaNacimiento')?.errors?.['fechaNacimiento']" style="color: red">Campo invalido</div>
+                                </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                          <label class="form-label" >Celular</label>
+                          <input type="tel" id="celular" class="form-control" name="celular" formControlName="celular"/>
+                          <div *ngIf="newUserForm.get('celular')?.invalid && submitted || newUserForm.get('celular')?.touched" >
+                            <div *ngIf="newUserForm.get('celular')?.errors?.['required']" style="color: red;">Campo requerido</div>
+                            <div *ngIf="newUserForm.get('celular')?.errors?.['celular']" style="color: red">Campo invalido</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <input class="btn btn-primary" type="submit" value="Registrar"/>
+                    </div>
+
+                    </div>
+                  </form>
                 </div>
               </div>
-
-              <hr class="mx-n3">
-
-              <div class="row align-items-center pt-4 pb-3">
-                <div class="col-md-3 ps-5">
-                  <h6 class="mb-0">Apellido paterno</h6>
-                </div>
-                <div class="col-md-9 pe-5">
-                  <input type="text" class="form-control form-control-lg" id="apellidoPaterno" name="apellidoPaterno" formControlName="apellidoPaterno"/>
-                </div>
-              </div>
-
-              <hr class="mx-n3">
-
-              <div class="row align-items-center pt-4 pb-3">
-                <div class="col-md-3 ps-5">
-                  <h6 class="mb-0">Apellido materno</h6>
-                </div>
-                <div class="col-md-9 pe-5">
-                  <input type="text" class="form-control form-control-lg" id="apellidoMaterno" name="apellidoMaterno" formControlName="apellidoMaterno"/>
-                </div>
-              </div>
-
-              <hr class="mx-n3">
-
-              <div class="row align-items-center pt-4 pb-3">
-                <div class="col-md-3 ps-5">
-                  <h6 class="mb-0">Contraseña</h6>
-                </div>
-                <div class="col-md-9 pe-5">
-                  <input type="text" class="form-control form-control-lg" id="password" name="password" formControlName="password"/>
-                </div>
-              </div>
-
-              <hr class="mx-n3">
-
-              <div class="row align-items-center pt-4 pb-3">
-                <div class="col-md-3 ps-5">
-                  <h6 class="mb-0">Tipo usuario</h6>
-                </div>
-                <div class="col-md-9 pe-5">
-                  <input type="text" class="form-control form-control-lg" id="idrol" name="idrol" formControlName="idrol"/>
-                </div>
-              </div>
-
-              <hr class="mx-n3">
-
-              <div class="row align-items-center pt-4 pb-3">
-                <div class="col-md-3 ps-5">
-                  <h6 class="mb-0">Email</h6>
-                </div>
-                <div class="col-md-9 pe-5">
-                  <input type="text" class="form-control form-control-lg" id="email" name="email" formControlName="email"/>
-                  <div *ngIf="newUserForm.get('email')?.invalid && submitted || newUserForm.get('email')?.touched" >
-                    <div *ngIf="newUserForm.get('email')?.errors?.['required']" style="color: red;">Email is required</div>
-                    <div *ngIf="newUserForm.get('email')?.errors?.['email']" style="color: red">Email must be a valid email address --></div>
-
-                </div>
-
-                </div>
-              </div>
-
-              <hr class="mx-n3">
-
-              <div class="row align-items-center pt-4 pb-3">
-                <div class="col-md-3 ps-5">
-                  <h6 class="mb-0">Fecha de nacimiento</h6>
-                </div>
-                <div class="col-md-9 pe-5">
-                  <input type="date" class="form-control form-control-lg" id="fechaNacimiento" name="fechaNacimiento"
-                         formControlName="fechaNacimiento" min="1900-01-01" max="2018-12-31"/>
-                </div>
-              </div>
-
-              <hr class="mx-n3">
-
-              <div class="row align-items-center pt-4 pb-3">
-                <div class="col-md-3 ps-5">
-                  <h6 class="mb-0">Celular</h6>
-                </div>
-                <div class="col-md-9 pe-5">
-                  <input type="text" class="form-control form-control-lg" id="celular" name="celular" formControlName="celular"/>
-                </div>
-              </div>
-
-              <hr class="mx-n3">
-
-              <div class="px-5 py-4">
-                <button type="submit" class="btn btn-primary btn-lg">Registrar usuario</button>
-              </div>
-            </form>
-
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <!-- CONTENT -->
     </div>
   </div>
-</section>
+</body>
+
+

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Data, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Newuser } from 'app/interfaces/newuser';
 import { newUserService } from 'app/services/new_users.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create_user',
@@ -35,7 +36,8 @@ export class newUserComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private createUserService: newUserService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -97,7 +99,10 @@ export class newUserComponent implements OnInit {
       this.body2.fechaNacimiento = this.FechaNacimiento!.value;
       this.body2.celular = parseInt(this.Celular!.value);
       console.log(this.body2);
-      this.createUserService.postNewUser(this.body2).subscribe((res: any)=>{console.log(res)})
+      this.createUserService.postNewUser(this.body2).subscribe((res: any)=>{console.log(res) ;this.toastr.success(res.msg)},
+      (error:any)=>{console.log('huwevos',error.error.errors); error.error.errors.forEach((element: any) =>{
+        this.toastr.error(element.msg, '', {timeOut:15000})
+      });})
     }
   }
 

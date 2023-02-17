@@ -19,7 +19,8 @@ export class AuthGuardGuard implements CanActivate {
 		var credentials: any;
 		if (localStorage.getItem("credentials")){
 			credentials = localStorage.getItem("credentials")
-				return true;
+      this.router.navigate(['admin']);
+        return true;
 		} else {
 			this.router.navigate(['login']);
 			return false;

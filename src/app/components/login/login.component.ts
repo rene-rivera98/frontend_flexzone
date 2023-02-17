@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { singInBody } from 'app/interfaces/body';
 import { LoginService } from 'app/services/login.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private auth: LoginService,
-    private router: Router
+    private router: Router,
+     private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -52,24 +54,15 @@ export class LoginComponent implements OnInit {
       this.body.username = this.Username!.value;
       this.body.password = this.Password!.value;
       console.log(this.body);
-      this.auth.getAccessToken(this.body).subscribe((res) => {
-        console.log(res);
+      this.auth.getAccessToken(this.body).subscribe((res: any) => {console.log(res); this.toastr.success(res.msg)
         if (res.token) {
           const token:string=res.token
           localStorage.setItem('credentials',token)
           this.router.navigate(['/']);
         }
       });
-      /*     this.authenticationSvc.signIn(this.body)
-      .subscribe((result:any)=>{
-        this.signninIn=false;
-        if(result){
+      }
 
-        }else{
-
-          console.log(result?.ExternalMessage, 'Error de autenticación')
-        }
-      }) */
-    }
   }
 }
+

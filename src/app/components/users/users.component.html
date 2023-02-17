@@ -1,69 +1,128 @@
-<div>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </ul>
-    </div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+<body>
+  <div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <div class="contenedor"><img class="imagen" id="logo" src="../../../assets/img/logo_flexzone_fotter.png" width="200px"></div>
+      </div>
+
+      <ul class="list-unstyled components">
+          <p style="text-align: center; font-size: x-large;">ADMINISTRADOR</p>
+          <hr>
+          <li>
+            <div>
+              <a href="#" style="display: flex; align-items: center;"><i class="bi bi-bar-chart-fill" style="font-size: 1.4rem;"></i><span style="margin-top: 10px; margin-left: 5px; font-size: 1.7rem;">Reportes</span></a>
+            </div>
+          </li>
+          <!--  -->
+          <li>
+            <div>
+              <a href="#" style="display: flex; align-items: center;"><i class="bi bi-archive-fill" style="font-size: 1.4rem;"></i><span style="margin-top: 10px; margin-left: 5px; font-size: 1.7rem;">FrontDesk</span></a>
+            </div>
+          </li>
+          <!--  -->
+          <li>
+            <div>
+              <a href="#" style="display: flex; align-items: center;"><i class="bi bi-cup-fill" style="font-size: 1.4rem;"></i><span style="margin-top: 10px; margin-left: 5px; font-size: 1.7rem;">Cafeteria</span></a>
+            </div>
+          </li>
+          <!--  -->
+          <li>
+            <div>
+              <a [routerLink]="['/datatable']" style="display: flex; align-items: center;"><i class="bi bi-person-fill" style="font-size: 1.4rem;"></i><span style="margin-top: 10px; margin-left: 5px; font-size: 1.7rem;">Usuarios</span></a>
+            </div>
+          </li>
+          <!--  -->
+          <li>
+            <div>
+              <a href="#" style="display: flex; align-items: center;"><i class="bi bi-receipt-cutoff" style="font-size: 1.4rem;"></i><span style="margin-top: 10px; margin-left: 5px; font-size: 1.7rem;">Facturas</span></a>
+            </div>
+          </li>
+          <!--  -->
+          <li>
+            <div>
+              <a href="#" style="display: flex; align-items: center;"><i class="bi bi-cash-stack" style="font-size: 1.4rem;"></i><span style="margin-top: 10px; margin-left: 5px; font-size: 1.7rem;">Caja</span></a>
+            </div>
+          </li>
+          <!--  -->
+        </ul>
+
+        <div style="margin-left: 3rem;">
+          <button type="button" class="btn btn-primary"
+                  style="--bs-btn-border-color: blueviolet;
+                         --bs-btn-bg: blueviolet;
+                         --bs-btn-hover-bg: #242e3d;
+                         --bs-btn-hover-border-color: #ffe100df;
+                         --bs-btn-hover-bg: #ffe100df;
+                         --bs-btn-hover-color: #ffffff;">
+            CERRAR SESIÓN
+          </button>
+        </div>
   </nav>
-</div>
 
-<div *ngIf="obtenido|async">
+    <!-- Page Content  -->
+    <div id="content">
+      <!-- NAVBAR -->
+        <app-navbar-users></app-navbar-users>
+      <!-- NAVBAR -->
 
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- CONTENT -->
+      <div *ngIf="obtenido|async">
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
 
-    <!-- Position Column -->
-    <ng-container matColumnDef="nombre">
-      <th mat-header-cell *matHeaderCellDef> Nombre </th>
-      <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
-    </ng-container>
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="paterno">
-      <th mat-header-cell *matHeaderCellDef> Apellido Paterno </th>
-      <td mat-cell *matCellDef="let element"> {{element.apellidoPaterno}} </td>
-    </ng-container>
+          <!-- Position Column -->
+          <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+          </ng-container>
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="materno">
-      <th mat-header-cell *matHeaderCellDef> Apellido Materno </th>
-      <td mat-cell *matCellDef="let element"> {{element.apellidoMaterno}} </td>
-    </ng-container>
+          <!-- Name Column -->
+          <ng-container matColumnDef="paterno">
+            <th mat-header-cell *matHeaderCellDef> Apellido Paterno </th>
+            <td mat-cell *matCellDef="let element"> {{element.apellidoPaterno}} </td>
+          </ng-container>
 
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="celular">
-      <th mat-header-cell *matHeaderCellDef> Celular </th>
-      <td mat-cell *matCellDef="let element"> {{element.celular}} </td>
-    </ng-container>
+          <!-- Weight Column -->
+          <ng-container matColumnDef="materno">
+            <th mat-header-cell *matHeaderCellDef> Apellido Materno </th>
+            <td mat-cell *matCellDef="let element"> {{element.apellidoMaterno}} </td>
+          </ng-container>
 
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="fecha">
-      <th mat-header-cell *matHeaderCellDef> Fecha alta </th>
-      <td mat-cell *matCellDef="let element"> {{element.createdAt}} </td>
-    </ng-container>
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="celular">
+            <th mat-header-cell *matHeaderCellDef> Celular </th>
+            <td mat-cell *matCellDef="let element"> {{element.celular}} </td>
+          </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-  <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-  showFirstLastButtons>
-  </mat-paginator> -->
-</div>
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="fecha">
+            <th mat-header-cell *matHeaderCellDef> Fecha alta </th>
+            <td mat-cell *matCellDef="let element"> {{element.createdAt}} </td>
+          </ng-container>
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[dataSource.data.length]"
+        showFirstLastButtons>
+        </mat-paginator>
+
+      </div>
+
+      <!-- CONTENT -->
+    </div>
+  </div>
+</body>
+
+
+
+
+

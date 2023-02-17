@@ -16,13 +16,16 @@ import { MatCardModule} from '@angular/material/card';
 import { MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { newUserComponent} from './components/create_user/create_user.component';
+import { NavbarUsersComponent } from './components/navbar-users/navbar-users.component';
+import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
 
 const appRoutes: Routes=[
   {path:'login', component:LoginComponent},
   {path: 'admin', component:NavBarComponent},
   {path:'', component:LoginComponent,canActivate:[AuthGuardGuard]},
-  {path: 'datatable', component:UsersComponent,canActivate:[AuthGuardGuard]},
-  {path: 'createuser', component:newUserComponent,canActivate:[AuthGuardGuard]}
+  {path: 'datatable', component:UsersComponent},
+  {path: 'createuser', component:newUserComponent}
 
 ];
 
@@ -34,7 +37,8 @@ const appRoutes: Routes=[
     UsersComponent,
     PaquetesComponent,
     CashRegisterComponent,
-    newUserComponent
+    newUserComponent,
+    NavbarUsersComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,9 @@ const appRoutes: Routes=[
     BrowserAnimationsModule,
     MatCardModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    CommonModule, // required animations module
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
